@@ -1,0 +1,15 @@
+
+service: hello-world 
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello/{name}
+          method: get
+plugins:
+  - serverless-offline
